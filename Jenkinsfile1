@@ -1,17 +1,18 @@
 pipeline {
-  agent any
-  tools {
-    maven 'Maven'
-  }
-  stages {
-    stage ('Initialize'){ 
-      steps {
-        sh echo "Hi Kewal"
-             }
-      stage ('Build'){
-        steps{
-          sh 'mvn clean package'
+    agent any
+    tools {
+        maven 'Maven'
+    }
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh echo "Hi Kewal"
+            }
         }
-      }
-  }
-  }
+            stage ('Build') {
+                steps {
+                    sh 'mvn clean package'
+                }
+            }
+        }
+    }
