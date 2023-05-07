@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage ('Initialize') {
             steps {
-                sh 'echo "Hi Kewal"'
+                sh 'echo "Hi Kewal, this is DevSecops pipeline with SCA"'
             }
         }
         
