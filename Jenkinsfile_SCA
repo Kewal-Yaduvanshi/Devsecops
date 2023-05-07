@@ -9,6 +9,20 @@ pipeline {
                 sh 'echo "Hi Kewal"'
             }
         }
+        
+            stage ('Source Composition Analysis') {
+      steps {
+         sh 'rm owasp* || true'
+         sh 'wget "https://raw.githubusercontent.com/Kewal-Yaduvanshi/Devsecops/main/owasp-dependency-checker.sh" '
+         sh 'chmod +x owasp-dependency-checker.sh'
+         sh 'bash owasp-dependency-checker.sh'
+         sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
+        
+      }
+    }
+        
+        
+        
             stage ('Build') {
                 steps {
                     sh 'mvn clean package'
